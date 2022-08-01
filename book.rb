@@ -17,5 +17,3 @@ class Book < Item
   private :can_be_archived?
 end
 
-book = Book.new(publisher: 'sony', cover_state: 'bad', publish_date: "01-01-2022")
-p book.can_be_archived?

@@ -1,4 +1,9 @@
+require './book'
+
+
 class Label
+  attr_accessor :title, :color, :items
+  
   def initialize(title:, color:)
     @id = rand(1..100)
     @title = title

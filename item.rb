@@ -19,9 +19,14 @@ class Item
     @archived = true if can_be_archived?
   end
 
-  private
+  def label=(label)
+    @label=label
+    label.items<<self unless label.items.include?(self)
+  end
+    private
 
   def can_be_archived?
     Date.today.year - DateTime.parse(@publish_date).year > 10
   end
 end
+
