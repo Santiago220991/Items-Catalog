@@ -3,7 +3,12 @@ class App
   attr_reader :status
 
   def initialize
-    @status = 'Created'
+    @books=[]
+    @albums=[]
+    @games=[]
+    @genres=[]
+    @labels=[]
+    @sources=[]
   end
 
   def main_menu
@@ -18,31 +23,55 @@ class App
     puts '8 - Add a music album'
     puts '9 - Add a game'
     puts '10 - Exit'
-    gets.chomp.strip
   end
 
     def cases(command)
-    return unless %w[1 2 3 4 5 6 7 8 9 10].include? command
+    return unless [1, 2, 3, 4, 5, 6, 7, 8, 9].include? command
 
-    { '1' => -> { list_books },
-      '2' => -> { list_people },
-      '3' => -> { create_person },
-      '4' => -> { create_book },
-      '5' => -> { create_rental },
-      '6' => -> { rentals_by_index } }[command].call
+    {1 => -> { list_books },
+     2 => -> { list_albums },
+     3 => -> { list_games },
+     4 => -> { list_genres },
+     5 => -> { list_labels },
+     6 => -> { list_sources },
+     7 => -> { add_book },
+     8 => -> { add_album },
+     9 => -> { add_game },}[command].call
   end
 
-  def action
-    command = main_menu
-    cases(command)
-    command
+  def list_books
+    puts "Books"
   end
 
-  def run
-    while command != '10'
-      puts ' '
-      command = action()
-      save
-    end
+  def list_albums
+    puts "Albums"
+  end
+
+  def list_games
+    puts "Albums"
+  end
+
+  def list_genres
+    puts "Albums"
+  end
+
+  def list_sources
+    puts "Albums"
+  end
+
+  def list_labels
+    puts "Albums"
+  end
+
+  def add_book
+    puts "new book"
+  end
+
+  def add_album
+    puts "new album"
+  end
+
+  def add_game
+    puts "new game"
   end
 end
