@@ -1,7 +1,7 @@
 require './book_ui'
 
 class App
-  include Book_UI
+  include BookUi
   attr_reader :status
 
   def initialize
@@ -42,7 +42,7 @@ class App
   end
 
   def list_books
-    @books.each do |book| 
+    @books.each do |book|
       puts "Id: #{book.id} Title: #{book.label.title} Author: #{book.label.author} Publish date: #{book.publish_date}"
     end
   end
@@ -68,10 +68,9 @@ class App
   end
 
   def add_book
-    data=create_book
+    data = create_book
     @books << data[:book]
     @labels << data[:label]
-    
   end
 
   def add_album
