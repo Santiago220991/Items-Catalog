@@ -1,5 +1,6 @@
 require './book_ui'
 require_relative 'game_ul'
+require 'json'
 
 class App
   include BookUi
@@ -7,11 +8,17 @@ class App
   attr_reader :status
 
   def initialize
-    @books = []
+    @labels = File.exist?('./labels.json') ? JSON.parse(File.read('./labels.json'), create_additions: true) : []
+    @books = if File.exist?('./books.json')
+      JSON.parse(File.read('./books.json'), create_additions: true).map do |book|
+      load_books(book)
+      end
+      else
+      []
+      end
     @albums = []
     @games = []
     @genres = []
-    @labels = []
     @authors = []
   end
 
@@ -89,4 +96,19 @@ class App
     @games << data[:game]
     @authors << data[:author]
   end
+
+  def save_books_labels
+    File.write('books.json', JSON.generate(@books))
+    File.write('labels.json', JSON.generate(@labels))
+    end
+    
+    def load_books(book)
+    label_id = book[:label].id
+    label = @labels.filter { |lab| lab.id == label_id }.first
+    book = Book.new(publish_date: book[:publish_date], publisher: book[:publisher], cover_state: book[:cover_state],
+    archived: book[:archived])
+    book.label = label
+    book
+    end
+    
 end

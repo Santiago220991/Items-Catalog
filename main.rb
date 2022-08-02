@@ -12,6 +12,7 @@ def main
       app.cases(command)
     end
   end
+  app.save_books_labels
 end
 
 main
