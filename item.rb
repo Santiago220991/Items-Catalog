@@ -7,13 +7,18 @@ class Item
 
   def initialize(publish_date:, archived: false)
     @id = Random.rand(1..100)
-    @genre = genre
+
     @publish_date = publish_date
     @archived = archived
   end
 
   def move_to_archive
     @archived = true if can_be_archived?
+  end
+
+  def add_genre(genre)
+    @genre = genre
+    genre.items << self unless genre.items.include?(self)
   end
 
   def label=(label)
