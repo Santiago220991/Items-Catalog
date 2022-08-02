@@ -1,7 +1,9 @@
 require './book_ui'
+require_relative 'game_ul'
 
 class App
   include BookUi
+  include GameUl
   attr_reader :status
 
   def initialize
@@ -10,7 +12,7 @@ class App
     @games = []
     @genres = []
     @labels = []
-    @sources = []
+    @authors = []
   end
 
   def main_menu
@@ -19,8 +21,8 @@ class App
     puts '2 - List all music albums'
     puts '3 - List of games'
     puts '4 - List all genres'
-    puts '5 - List all sources'
-    puts '6 - List all labels'
+    puts '5 - List all labels'
+    puts '6 - List all authors'
     puts '7 - Add a book'
     puts '8 - Add a music album'
     puts '9 - Add a game'
@@ -34,8 +36,8 @@ class App
       2 => -> { list_albums },
       3 => -> { list_games },
       4 => -> { list_genres },
-      5 => -> { list_sources },
-      6 => -> { list_labels },
+      5 => -> { list_labels },
+      6 => -> { list_authors },
       7 => -> { add_book },
       8 => -> { add_album },
       9 => -> { add_game } }[command].call
@@ -52,19 +54,24 @@ class App
   end
 
   def list_games
-    puts 'Albums'
+    puts 'List of games'
+    @games.each do |game|
+      puts "Id: #{game.id}, Last time played: #{game.last_played_at}, " \
+           "author: #{game.author.first_name} #{game.author.last_name}, Publish date: #{game.publish_date}"
+    end
   end
 
   def list_genres
     puts 'Albums'
   end
 
-  def list_sources
-    puts 'Albums'
-  end
-
   def list_labels
     @labels.each { |label| puts "Id: #{label.id} Title: #{label.title} Color: #{label.color}" }
+  end
+
+  def list_authors
+    puts 'List of authors'
+    @authors.each { |author| puts "Id: #{author.id} first name: #{author.first_name}, last name: #{author.last_name}" }
   end
 
   def add_book
@@ -78,6 +85,8 @@ class App
   end
 
   def add_game
-    puts 'new game'
+    data = create_game
+    @games << data[:game]
+    @authors << data[:author]
   end
 end
