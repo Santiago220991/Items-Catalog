@@ -52,7 +52,7 @@ class App
 
   def list_books
     @books.each do |book|
-      puts "Id: #{book.id} Title: #{book.label.color} Color: #{book.label.color} Publish date: #{book.publish_date}"
+      puts "Id: #{book.id} Title: #{book.label.title} Color: #{book.label.color} Publish date: #{book.publish_date}"
     end
   end
 
