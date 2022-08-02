@@ -34,15 +34,15 @@ class App
       2 => -> { list_albums },
       3 => -> { list_games },
       4 => -> { list_genres },
-      5 => -> { list_labels },
-      6 => -> { list_sources },
+      5 => -> { list_sources },
+      6 => -> { list_labels},
       7 => -> { add_book },
       8 => -> { add_album },
       9 => -> { add_game } }[command].call
   end
 
   def list_books
-    @books.each { |book| puts "Publisher: #{book.publisher} Publish date: #{book.publish_date} Cover State: #{book.cover_state} Archived: #{book.archived} "}
+    @books.each { |book| puts "Id: #{book.id} Title: #{book.label.title} Author: #{book.label.author} Publisher: #{book.publisher} Publish date: #{book.publish_date}"}
   end
 
   def list_albums
@@ -62,7 +62,7 @@ class App
   end
 
   def list_labels
-    puts 'Albums'
+    @labels.each { |label| puts "Id: #{label.id} Title: #{label.title} Author: #{label.author}"}
   end
 
   def add_book

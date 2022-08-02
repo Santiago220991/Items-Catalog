@@ -2,7 +2,7 @@ require './book'
 
 
 class Label
-  attr_accessor :title, :author, :items
+  attr_accessor :title, :author, :items, :id
   
   def initialize(title:, author:)
     @id = rand(1..100)
