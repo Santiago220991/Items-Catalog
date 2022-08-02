@@ -9,7 +9,7 @@ class Item
     @id = Random.rand(1..100)
     @genre = genre
     @author = author
-    @source = source
+    @label = label
     @publish_date = publish_date
     @archived = archived
   end
