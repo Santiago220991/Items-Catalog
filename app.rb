@@ -43,7 +43,7 @@ class App
 
   def list_books
     @books.each do |book|
-      puts "Id: #{book.id} Title: #{book.label.title} Author: #{book.label.author} Publish date: #{book.publish_date}"
+      puts "Id: #{book.id} Title: #{book.label.color} Color: #{book.label.color} Publish date: #{book.publish_date}"
     end
   end
 
@@ -64,7 +64,7 @@ class App
   end
 
   def list_labels
-    @labels.each { |label| puts "Id: #{label.id} Title: #{label.title} Author: #{label.author}" }
+    @labels.each { |label| puts "Id: #{label.id} Title: #{label.title} Color: #{label.color}" }
   end
 
   def add_book

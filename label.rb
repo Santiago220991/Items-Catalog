@@ -1,12 +1,12 @@
 require './book'
 
 class Label
-  attr_accessor :title, :author, :items, :id
+  attr_accessor :title, :color, :items, :id
 
-  def initialize(title:, author:)
+  def initialize(title:, color:)
     @id = rand(1..100)
     @title = title
-    @author = author
+    @color = color
     @items = []
   end
 

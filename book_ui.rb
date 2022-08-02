@@ -16,7 +16,7 @@ module BookUi
     puts 'Is it archived?: [Yes/No]'
     archived = gets.chomp
     book = Book.new(publish_date: publish_date, publisher: publisher, cover_state: cover_state, archived: archived)
-    label = Label.new(title: title, author: color)
+    label = Label.new(title: title, color: color)
     label.add_item(book)
     { book: book, label: label }
   end
