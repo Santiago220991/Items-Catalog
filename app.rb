@@ -78,7 +78,7 @@ class App
 
   def list_authors
     puts 'List of authors'
-    @authors.each { |author| puts "Id: #{author.id} first name: #{author.first_name}, last name: #{author.last_name}" }
+    @authors.each { |author| puts "Id: #{author.id}, first name: #{author.first_name}, last name: #{author.last_name}" }
   end
 
   def add_book
@@ -97,9 +97,11 @@ class App
     @authors << data[:author]
   end
 
-  def save_books_labels
+  def save
     File.write('books.json', JSON.generate(@books))
     File.write('labels.json', JSON.generate(@labels))
+    File.write('games.json', JSON.generate(@games))
+    File.write('authors.json', JSON.generate(@authors))
   end
 
   def load_books(book)
