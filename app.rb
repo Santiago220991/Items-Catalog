@@ -1,16 +1,22 @@
+require_relative 'music_album/musicui'
 class App
+  include Music
   attr_reader :status
 
   def initialize
     @books = []
-    @albums = []
-    @games = []
+    @music_albums = []
     @genres = []
     @labels = []
     @sources = []
   end
 
   def main_menu
+    puts ''
+    puts('-----------------------------------')
+    puts "\nWelcome to Item Catalog App!!\n\n"
+    puts('-----------------------------------')
+    puts ''
     puts 'What would you like to do  (1 - 10)'
     puts '1 - List all books'
     puts '2 - List all music albums'
@@ -43,7 +49,10 @@ class App
   end
 
   def list_albums
-    puts 'Albums'
+    @music_albums.each do |music_album|
+      print "Id: #{music_album.id}, Name: #{music_album.genre.name},"\
+            " On spotify #{music_album.on_spotify}, publish date #{music_album.publish_date} "
+    end
   end
 
   def list_games
@@ -51,7 +60,7 @@ class App
   end
 
   def list_genres
-    puts 'Albums'
+    @genres.each { |genre| puts "Id: #{genre.id} Title: #{genre.name}" }
   end
 
   def list_sources
@@ -67,7 +76,9 @@ class App
   end
 
   def add_album
-    puts 'new album'
+    data = create_music
+    @music_albums << data[:music_album]
+    @genres << data[:genre]
   end
 
   def add_game
