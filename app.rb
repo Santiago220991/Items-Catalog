@@ -54,7 +54,11 @@ class App
   end
 
   def list_games
-    puts 'Albums'
+    puts 'List of games'
+    @games.each do |game|
+      puts "Id: #{game.id}, Last time played: #{game.last_played_at}, " \
+           "author: #{game.author.first_name} #{game.author.last_name}, Publish date: #{game.publish_date}"
+    end
   end
 
   def list_genres
