@@ -22,18 +22,22 @@ module Loader
 
   def load_books(book)
     label_id = book[:label].id
+    book_id = book[:id]
     label = @labels.filter { |lab| lab.id == label_id }.first
     book = Book.new(publish_date: book[:publish_date], publisher: book[:publisher], cover_state: book[:cover_state],
                     archived: book[:archived])
+    book.id = book_id
     book.label = label
     book
   end
 
   def load_games(game)
     author_id = game[:author].id
+    game_id = game[:id]
     author = @authors.filter { |auth| auth.id == author_id }.first
     game = Game.new(publish_date: game[:publish_date], last_played_at: game[:last_played_at],
                     multiplayer: game[:multiplayer], archived: game[:archived])
+    game.id = game_id
     game.author = author
     game
   end
