@@ -1,3 +1,5 @@
+require './book'
+
 class App
   attr_reader :status
 
@@ -63,7 +65,16 @@ class App
   end
 
   def add_book
-    puts 'new book'
+    puts "Insert Publish Date [DD-MM-YYYY]"
+    publish_date=gets.chomp
+    puts "Insert Publisher"
+    publisher=gets.chomp
+    puts "Insert the cover state [good,bad]"
+    cover_state=gets.chomp.downcase
+    puts "Is it archived?: [Y/N]"
+    archived= gets.chomp
+    book=Book.new(publish_date: publish_date, publisher: publisher, cover_state: cover_state, archived: archived)
+    @books << book
   end
 
   def add_album
