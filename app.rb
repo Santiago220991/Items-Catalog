@@ -12,11 +12,11 @@ class App
 
   def initialize
     @labels = load_file1('labels')
-    @books = load_file2('books')
-    @albums = []
-    @games = []
-    @genres = []
     @authors = load_file1('authors')
+    @books = load_file2('books')
+    @games = load_file2('games')
+    @albums = []
+    @genres = []
   end
 
   def main_menu
