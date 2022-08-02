@@ -1,7 +1,7 @@
-require './book'
-require './label'
+require './book_ui'
 
 class App
+  include Book_UI
   attr_reader :status
 
   def initialize
@@ -35,14 +35,16 @@ class App
       3 => -> { list_games },
       4 => -> { list_genres },
       5 => -> { list_sources },
-      6 => -> { list_labels},
+      6 => -> { list_labels },
       7 => -> { add_book },
       8 => -> { add_album },
       9 => -> { add_game } }[command].call
   end
 
   def list_books
-    @books.each { |book| puts "Id: #{book.id} Title: #{book.label.title} Author: #{book.label.author} Publisher: #{book.publisher} Publish date: #{book.publish_date}"}
+    @books.each do |book| 
+      puts "Id: #{book.id} Title: #{book.label.title} Author: #{book.label.author} Publish date: #{book.publish_date}"
+    end
   end
 
   def list_albums
@@ -62,27 +64,14 @@ class App
   end
 
   def list_labels
-    @labels.each { |label| puts "Id: #{label.id} Title: #{label.title} Author: #{label.author}"}
+    @labels.each { |label| puts "Id: #{label.id} Title: #{label.title} Author: #{label.author}" }
   end
 
   def add_book
-    puts "Insert Title"
-    title=gets.chomp
-    puts "Insert Author"
-    color=gets.chomp
-    puts "Insert Publish Date [DD-MM-YYYY]"
-    publish_date=gets.chomp
-    puts "Insert Publisher"
-    publisher=gets.chomp
-    puts "Insert the cover state [good,bad]"
-    cover_state=gets.chomp.downcase
-    puts "Is it archived?: [Yes/No]"
-    archived= gets.chomp
-    book=Book.new(publish_date: publish_date, publisher: publisher, cover_state: cover_state, archived: archived)
-    @books << book
-    label=Label.new(title: title, author: color)
-    @labels<<label
-    label.add_item(book)
+    data=create_book
+    @books << data[:book]
+    @labels << data[:label]
+    
   end
 
   def add_album

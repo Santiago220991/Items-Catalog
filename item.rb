@@ -10,7 +10,6 @@ class Item
     @genre = genre
     @author = author
     @source = source
-    @label = label
     @publish_date = publish_date
     @archived = archived
   end
@@ -20,13 +19,13 @@ class Item
   end
 
   def label=(label)
-    @label=label
-    label.items<<self unless label.items.include?(self)
+    @label = label
+    label.items << self unless label.items.include?(self)
   end
-    private
+
+  private
 
   def can_be_archived?
     Date.today.year - DateTime.parse(@publish_date).year > 10
   end
 end
-
