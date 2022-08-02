@@ -20,6 +20,7 @@ class App
              end
     @albums = []
     @games = []
+    @music_albums = []
     @genres = []
     @authors = []
   end
