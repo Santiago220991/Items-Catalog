@@ -69,7 +69,7 @@ class App
   def list_albums
     @music_albums.each do |music_album|
       print "Id: #{music_album.id}, Name: #{music_album.genre.name}, " \
-            " On spotify #{music_album.on_spotify}, publish date #{music_album.publish_date} "
+            "On spotify #{music_album.on_spotify}, publish date #{music_album.publish_date}"
     end
   end
 
