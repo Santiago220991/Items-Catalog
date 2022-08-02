@@ -3,8 +3,7 @@ require './music_album/genre'
 
 module Music
   def create_music
-    puts('Enter published date (YYYY-MM-DD): ')
-    publish_date = gets.chomp.to_i
+    publish_date =  [(print 'Insert publish date '), gets.rstrip][1]
     puts('Is on spotify? [Y/N]: ')
     response = gets.chomp
     on_spotify = response.downcase == 'y'

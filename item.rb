@@ -16,10 +16,10 @@ class Item
     @archived = true if can_be_archived?
   end
 
-
   def add_genre(genre)
     @genre = genre
     genre.items << self unless genre.items.include?(self)
+  end
 
   def label=(label)
     @label = label
@@ -29,7 +29,6 @@ class Item
   def author=(author)
     @author = author
     author.items << self unless author.items.include?(self)
-
   end
 
   private
