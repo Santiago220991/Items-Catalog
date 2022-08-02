@@ -1,4 +1,5 @@
 require './book'
+require './label'
 
 class App
   attr_reader :status
@@ -41,7 +42,7 @@ class App
   end
 
   def list_books
-    puts 'Books'
+    @books.each { |book| puts "Publisher: #{book.publisher} Publish date: #{book.publish_date} Cover State: #{book.cover_state} Archived: #{book.archived} "}
   end
 
   def list_albums
@@ -65,16 +66,23 @@ class App
   end
 
   def add_book
+    puts "Insert Title"
+    title=gets.chomp
+    puts "Insert Author"
+    color=gets.chomp
     puts "Insert Publish Date [DD-MM-YYYY]"
     publish_date=gets.chomp
     puts "Insert Publisher"
     publisher=gets.chomp
     puts "Insert the cover state [good,bad]"
     cover_state=gets.chomp.downcase
-    puts "Is it archived?: [Y/N]"
+    puts "Is it archived?: [Yes/No]"
     archived= gets.chomp
     book=Book.new(publish_date: publish_date, publisher: publisher, cover_state: cover_state, archived: archived)
     @books << book
+    label=Label.new(title: title, author: color)
+    @labels<<label
+    label.add_item(book)
   end
 
   def add_album
