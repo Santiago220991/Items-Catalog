@@ -5,7 +5,7 @@ module BookUi
   def create_book
     puts 'Insert Title'
     title = gets.chomp
-    puts 'Insert Author'
+    puts 'Insert Color'
     color = gets.chomp
     puts 'Insert Publish Date [DD-MM-YYYY]'
     publish_date = gets.chomp
