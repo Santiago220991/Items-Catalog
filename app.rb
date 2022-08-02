@@ -1,28 +1,24 @@
+require 'json'
+
 require_relative 'music_album/musicui'
 require './book_ui'
 require_relative 'game_ul'
-require 'json'
+require_relative 'loaders'
 
 class App
   include BookUi
   include GameUl
   include Music
+  include Loader
   attr_reader :status
 
   def initialize
-    @labels = File.exist?('./labels.json') ? JSON.parse(File.read('./labels.json'), create_additions: true) : []
-    @books = if File.exist?('./books.json')
-               JSON.parse(File.read('./books.json'), create_additions: true).map do |book|
-                 load_books(book)
-               end
-             else
-               []
-             end
-    @albums = []
-    @games = []
+    @labels = load_file1('labels')
+    @authors = load_file1('authors')
+    @books = load_file2('books')
+    @games = load_file2('games')
     @music_albums = []
     @genres = []
-    @authors = []
   end
 
   def main_menu
@@ -89,7 +85,7 @@ class App
 
   def list_authors
     puts 'List of authors'
-    @authors.each { |author| puts "Id: #{author.id} first name: #{author.first_name}, last name: #{author.last_name}" }
+    @authors.each { |author| puts "Id: #{author.id}, first name: #{author.first_name}, last name: #{author.last_name}" }
   end
 
   def add_book
@@ -110,17 +106,10 @@ class App
     @authors << data[:author]
   end
 
-  def save_books_labels
+  def save
     File.write('books.json', JSON.generate(@books))
     File.write('labels.json', JSON.generate(@labels))
-  end
-
-  def load_books(book)
-    label_id = book[:label].id
-    label = @labels.filter { |lab| lab.id == label_id }.first
-    book = Book.new(publish_date: book[:publish_date], publisher: book[:publisher], cover_state: book[:cover_state],
-                    archived: book[:archived])
-    book.label = label
-    book
+    File.write('games.json', JSON.generate(@games))
+    File.write('authors.json', JSON.generate(@authors))
   end
 end
