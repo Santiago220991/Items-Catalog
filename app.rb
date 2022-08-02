@@ -1,5 +1,7 @@
 require_relative 'music_album/musicui'
 class App
+  include BookUi
+  include GameUl
   include Music
   attr_reader :status
 
