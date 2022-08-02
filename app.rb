@@ -1,4 +1,7 @@
+require './book_ui'
+
 class App
+  include BookUi
   attr_reader :status
 
   def initialize
@@ -31,15 +34,17 @@ class App
       2 => -> { list_albums },
       3 => -> { list_games },
       4 => -> { list_genres },
-      5 => -> { list_labels },
-      6 => -> { list_sources },
+      5 => -> { list_sources },
+      6 => -> { list_labels },
       7 => -> { add_book },
       8 => -> { add_album },
       9 => -> { add_game } }[command].call
   end
 
   def list_books
-    puts 'Books'
+    @books.each do |book|
+      puts "Id: #{book.id} Title: #{book.label.color} Color: #{book.label.color} Publish date: #{book.publish_date}"
+    end
   end
 
   def list_albums
@@ -59,11 +64,13 @@ class App
   end
 
   def list_labels
-    puts 'Albums'
+    @labels.each { |label| puts "Id: #{label.id} Title: #{label.title} Color: #{label.color}" }
   end
 
   def add_book
-    puts 'new book'
+    data = create_book
+    @books << data[:book]
+    @labels << data[:label]
   end
 
   def add_album
