@@ -17,7 +17,7 @@ class App
     @authors = load_file1('authors')
     @books = load_file2('books')
     @games = load_file2('games')
-    @albums = []
+    @music_albums = []
     @genres = []
   end
 
