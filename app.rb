@@ -1,9 +1,9 @@
 require './book_ui'
-require_relative 'author'
-require_relative 'game'
+require_relative 'game_ul'
 
 class App
   include BookUi
+  include GameUl
   attr_reader :status
 
   def initialize
@@ -63,7 +63,8 @@ class App
 
   def list_labels
     @labels.each { |label| puts "Id: #{label.id} Title: #{label.title} Color: #{label.color}" }
-    
+  end
+
   def list_authors
     puts 'authors'
   end
@@ -79,12 +80,8 @@ class App
   end
 
   def add_game
-    puts 'add a new game'
-    author_first = [(print 'Author first name '), gets.rstrip][1]
-    author_last = [(print 'Author last name '), gets.rstrip][1]
-    publish_date = [(print 'Publish date '), gets.rstrip][1]
-    last_played_at = [(print 'Last time you played'), gets.rstrip][1]
-    multiplayer = [(print 'Does it have multiplayer?(y/n) '), gets.rstrip][1]
-    game = Game.new
+    data = create_game
+    @games << data[:game]
+    @authors << data[:author]
   end
 end
