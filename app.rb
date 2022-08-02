@@ -70,7 +70,8 @@ class App
   end
 
   def list_authors
-    puts 'authors'
+    puts 'List of authors'
+    @authors.each { |author| puts "Id: #{author.id} first name: #{author.first_name}, last name: #{author.last_name}" }
   end
 
   def add_book
