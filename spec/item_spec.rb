@@ -35,12 +35,21 @@ describe Item do
     end
   end
 
-  context 'Testing custom methods '
-  it 'label method should have an instance variable equal to the label parameter' do
-    item = Item.new(publish_date: '01-01-2012')
-    label = double('label')
-    allow(label).to receive(:items) { [] }
-    item.label = label
-    expect(item.label).to eq(label)
+  context 'Testing custom methods ' do
+    it 'label method should have an instance variable equal to the label parameter' do
+      item = Item.new(publish_date: '01-01-2012')
+      label = double('label')
+      allow(label).to receive(:items) { [] }
+      item.label = label
+      expect(item.label).to eq(label)
+    end
+
+    it 'author method should have an instance variable equal to the author parameter' do
+      item = Item.new(publish_date: '01-01-2012')
+      author = double('author')
+      allow(author).to receive(:items) { [] }
+      item.author = author
+      expect(item.author).to eq(author)
+    end
   end
 end
