@@ -21,7 +21,6 @@ CREATE TABLE Book (
     item_id INT NOT NULL, 
     publisher TEXT NOT NULL, 
     cover_state TEXT NOT NULL, 
-    FOREIGN KEY (item_id) 
-    REFERENCES Item (id), 
+    FOREIGN KEY (item_id) REFERENCES Item (id), 
     PRIMARY KEY (id) 
 ); 
