@@ -22,10 +22,6 @@ class App
 
   def main_menu
     puts ''
-    puts('-----------------------------------')
-    puts "\nWelcome to Item Catalog App!!\n\n"
-    puts('-----------------------------------')
-    puts ''
     puts 'What would you like to do  (1 - 10)'
     puts '1 - List all books'
     puts '2 - List all music albums'
