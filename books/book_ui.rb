@@ -1,5 +1,5 @@
-require './book'
-require './label'
+require './books/book'
+require './books/label'
 
 module BookUi
   def create_book

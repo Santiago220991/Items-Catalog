@@ -1,8 +1,8 @@
 require 'json'
 
 require_relative 'music_album/musicui'
-require './book_ui'
-require_relative 'game_ul'
+require './books/book_ui'
+require_relative 'games/game_ul'
 require_relative 'loaders'
 
 class App

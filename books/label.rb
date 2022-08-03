@@ -1,4 +1,4 @@
-require './book'
+require './books/book'
 
 class Label
   attr_accessor :title, :color, :items, :id
