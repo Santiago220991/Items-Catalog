@@ -1,11 +1,11 @@
 module Loader
   def load_file1(file)
-    File.exist?("./#{file}.json") ? JSON.parse(File.read("./#{file}.json"), create_additions: true) : []
+    File.exist?("./json/#{file}.json") ? JSON.parse(File.read("./json/#{file}.json"), create_additions: true) : []
   end
 
   def load_file2(file)
-    if File.exist?("./#{file}.json")
-      JSON.parse(File.read("./#{file}.json"), create_additions: true).map do |data|
+    if File.exist?("./json/#{file}.json")
+      JSON.parse(File.read("./json/#{file}.json"), create_additions: true).map do |data|
         case file
         when 'books'
           load_books(data)
