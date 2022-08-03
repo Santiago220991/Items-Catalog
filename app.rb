@@ -50,19 +50,25 @@ class App
   end
 
   def list_books
+    puts ''
+    puts 'List of books'
     @books.each do |book|
       puts "Id: #{book.id} Title: #{book.label.title} Color: #{book.label.color} Publish date: #{book.publish_date}"
     end
   end
 
   def list_albums
+    puts ''
+    puts 'List of Music Albums'
     @music_albums.each do |music_album|
-      print "Id: #{music_album.id}, Name: #{music_album.genre.name}, " \
-            "On spotify #{music_album.on_spotify}, publish date #{music_album.publish_date}"
+      puts "Id: #{music_album.id} Name: #{music_album.genre.name} " \
+            "On spotify #{music_album.on_spotify} publish date #{music_album.publish_date}"
+      
     end
   end
 
   def list_games
+    puts ''
     puts 'List of games'
     @games.each do |game|
       puts "Id: #{game.id}, Last time played: #{game.last_played_at}, " \
@@ -71,14 +77,19 @@ class App
   end
 
   def list_genres
+    puts ''
+    puts 'List of genres'
     @genres.each { |genre| puts "Id: #{genre.id} Title: #{genre.name}" }
   end
 
   def list_labels
+    puts ''
+    puts 'List of labels'
     @labels.each { |label| puts "Id: #{label.id} Title: #{label.title} Color: #{label.color}" }
   end
 
   def list_authors
+    puts ''
     puts 'List of authors'
     @authors.each { |author| puts "Id: #{author.id}, first name: #{author.first_name}, last name: #{author.last_name}" }
   end

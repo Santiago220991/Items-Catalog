@@ -10,6 +10,8 @@ module Music
     music_album = MusicAlbum.new(publish_date: publish_date, on_spotify: on_spotify)
     genre = Genre.new(name: name)
     genre.add_item(music_album)
+    puts ''
+    puts 'music album created successfully'
     { music_album: music_album, genre: genre }
   end
 end

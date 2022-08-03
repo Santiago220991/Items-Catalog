@@ -11,6 +11,8 @@ module BookUi
     book = Book.new(publish_date: publish_date, publisher: publisher, cover_state: cover_state)
     label = Label.new(title: title, color: color)
     label.add_item(book)
+    puts ''
+    puts 'Book created successfully'
     { book: book, label: label }
   end
 end

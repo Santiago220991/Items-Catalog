@@ -12,6 +12,7 @@ module GameUl
     game = Game.new(publish_date: publish_date, last_played_at: last_played_at, multiplayer: multiplayer)
     author = Author.new(first_name: author_first, last_name: author_last)
     author.add_item(game)
+    puts ''
     puts 'Game created successfully'
     { game: game, author: author }
   end
