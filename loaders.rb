@@ -11,6 +11,8 @@ module Loader
           load_books(data)
         when 'games'
           load_games(data)
+        when 'musics'
+          load_musics(data)
         else
           puts 'wrong file'
         end
@@ -40,5 +42,15 @@ module Loader
     game.id = game_id
     game.author = author
     game
+  end
+
+  def load_musics(music)
+    genre_id = music[:genre].id
+    music_id = music[:id]
+    genre = @genres.filter { |gen| gen.id == genre_id }.first
+    music = MusicAlbum.new(publish_date: music[:publish_date], on_spotify: music[:on_spotify])
+    music.id = music_id
+    music.genre = genre
+    music
   end
 end
