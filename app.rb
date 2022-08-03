@@ -10,7 +10,6 @@ class App
   include GameUl
   include Music
   include Loader
-  attr_reader :status
 
   def initialize
     @labels = load_file1('labels')
