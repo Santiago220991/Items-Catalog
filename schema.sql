@@ -58,6 +58,5 @@ CREATE TABLE Game (
 
 CREATE TABLE music_album(
 	id SERIAL PRIMARY KEY,
-	on_spotify bit NULL
+	on_spotify boolean NULL
 );
-
