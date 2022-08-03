@@ -13,9 +13,7 @@ module BookUi
     publisher = gets.chomp
     puts 'Insert the cover state [good,bad]'
     cover_state = gets.chomp.downcase
-    puts 'Is it archived?: [Yes/No]'
-    archived = gets.chomp
-    book = Book.new(publish_date: publish_date, publisher: publisher, cover_state: cover_state, archived: archived)
+    book = Book.new(publish_date: publish_date, publisher: publisher, cover_state: cover_state)
     label = Label.new(title: title, color: color)
     label.add_item(book)
     { book: book, label: label }
