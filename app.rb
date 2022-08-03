@@ -106,11 +106,11 @@ class App
   end
 
   def save
-    File.write('books.json', JSON.generate(@books))
-    File.write('labels.json', JSON.generate(@labels))
-    File.write('games.json', JSON.generate(@games))
-    File.write('authors.json', JSON.generate(@authors))
-    File.write('musics.json', JSON.generate(@music_albums))
-    File.write('genres.json', JSON.generate(@genres))
+    File.write('./json/books.json', JSON.generate(@books))
+    File.write('./json/labels.json', JSON.generate(@labels))
+    File.write('./json/games.json', JSON.generate(@games))
+    File.write('./json/authors.json', JSON.generate(@authors))
+    File.write('./json/musics.json', JSON.generate(@music_albums))
+    File.write('./json/genres.json', JSON.generate(@genres))
   end
 end

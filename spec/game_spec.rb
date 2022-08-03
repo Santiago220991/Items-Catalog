@@ -1,4 +1,4 @@
-require './game'
+require './games/game'
 
 describe Game do
   context 'Testing Game Class' do
