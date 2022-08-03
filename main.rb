@@ -1,6 +1,11 @@
 require_relative 'app'
 
 def main
+  puts ''
+  puts('-----------------------------------')
+  puts "\nWelcome to Item Catalog App!!\n\n"
+  puts('-----------------------------------')
+  puts ''
   app = App.new
   exit = 0
   while exit.zero?
@@ -13,6 +18,7 @@ def main
     end
   end
   app.save
+  puts 'Thanks for using the app'
 end
 
 main

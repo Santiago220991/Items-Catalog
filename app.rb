@@ -1,8 +1,8 @@
 require 'json'
 
 require_relative 'music_album/musicui'
-require './book_ui'
-require_relative 'game_ul'
+require './books/book_ui'
+require_relative 'games/game_ul'
 require_relative 'loaders'
 
 class App
@@ -10,7 +10,6 @@ class App
   include GameUl
   include Music
   include Loader
-  attr_reader :status
 
   def initialize
     @labels = load_file1('labels')
@@ -22,10 +21,6 @@ class App
   end
 
   def main_menu
-    puts ''
-    puts('-----------------------------------')
-    puts "\nWelcome to Item Catalog App!!\n\n"
-    puts('-----------------------------------')
     puts ''
     puts 'What would you like to do  (1 - 10)'
     puts '1 - List all books'
@@ -107,11 +102,11 @@ class App
   end
 
   def save
-    File.write('books.json', JSON.generate(@books))
-    File.write('labels.json', JSON.generate(@labels))
-    File.write('games.json', JSON.generate(@games))
-    File.write('authors.json', JSON.generate(@authors))
-    File.write('musics.json', JSON.generate(@music_albums))
-    File.write('genres.json', JSON.generate(@genres))
+    File.write('./json/books.json', JSON.generate(@books))
+    File.write('./json/labels.json', JSON.generate(@labels))
+    File.write('./json/games.json', JSON.generate(@games))
+    File.write('./json/authors.json', JSON.generate(@authors))
+    File.write('./json/musics.json', JSON.generate(@music_albums))
+    File.write('./json/genres.json', JSON.generate(@genres))
   end
 end

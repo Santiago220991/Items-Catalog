@@ -1,4 +1,4 @@
-require './author'
+require './games/author'
 
 describe Author do
   context 'Testing Author class' do

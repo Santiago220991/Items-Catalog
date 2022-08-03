@@ -1,4 +1,4 @@
-require './book'
+require './books/book'
 
 describe Book do
   context 'Testing Book Class' do

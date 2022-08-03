@@ -1,4 +1,4 @@
-require './label'
+require './books/label'
 
 describe Label do
   context 'Testing Label class' do
