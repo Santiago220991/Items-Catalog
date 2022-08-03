@@ -18,7 +18,7 @@ def main
     end
   end
   app.save
-  puts "Thanks for using the app"
+  puts 'Thanks for using the app'
 end
 
 main
