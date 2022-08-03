@@ -10,6 +10,18 @@ class Game < Item
     @multiplayer = multiplayer
   end
 
+  def to_json(*args)
+    {
+      JSON.create_id => self.class.name, 'props' => [@id, @author, @last_played_at, @multiplayer, @archived,
+                                                     @publish_date]
+    }.to_json(*args)
+  end
+
+  def self.json_create(object)
+    { id: object['props'][0], author: object['props'][1], last_played_at: object['props'][2],
+      multiplayer: object['props'][3], archived: object['props'][4], publish_date: object['props'][5] }
+  end
+
   private
 
   def can_be_archived?
