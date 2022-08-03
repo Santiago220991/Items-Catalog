@@ -15,10 +15,10 @@ class App
   def initialize
     @labels = load_file1('labels')
     @authors = load_file1('authors')
+    @genres = load_file1('genres')
     @books = load_file2('books')
     @games = load_file2('games')
-    @music_albums = []
-    @genres = []
+    @music_albums = load_file2('musics')
   end
 
   def main_menu
@@ -111,5 +111,7 @@ class App
     File.write('labels.json', JSON.generate(@labels))
     File.write('games.json', JSON.generate(@games))
     File.write('authors.json', JSON.generate(@authors))
+    File.write('musics.json', JSON.generate(@music_albums))
+    File.write('genres.json', JSON.generate(@genres))
   end
 end
