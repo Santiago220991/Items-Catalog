@@ -13,7 +13,9 @@ class App
 
   def initialize
     @labels = load_file1('labels')
+    p @labels
     @authors = load_file1('authors')
+    p @authors
     @genres = load_file1('genres')
     @books = load_file2('books')
     @games = load_file2('games')
@@ -97,6 +99,8 @@ class App
     data = create_book
     @books << data[:book]
     @labels << data[:label]
+    @authors << data[:author]
+    @genres << data[:genre]
   end
 
   def add_album

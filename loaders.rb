@@ -25,11 +25,17 @@ module Loader
   def load_books(book)
     label_id = book[:label].id
     book_id = book[:id]
+    author_id = book[:author].id
+    genre_id = book[:genre].id
     label = @labels.filter { |lab| lab.id == label_id }.first
+    author = @authors.filter { |aut| aut.id == author_id }.first
+    genre = @genres.filter { |aut| aut.id == genre_id }.first
     book = Book.new(publish_date: book[:publish_date], publisher: book[:publisher], cover_state: book[:cover_state],
                     archived: book[:archived])
     book.id = book_id
     book.label = label
+    book.author = author
+    book.genre = genre
     book
   end
 
