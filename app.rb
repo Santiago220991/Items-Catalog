@@ -53,7 +53,8 @@ class App
     puts ''
     puts 'List of books'
     @books.each do |book|
-      puts "Id: #{book.id} Title: #{book.label.title} Author: #{book.author.first_name} #{book.author.last_name} Genre: #{book.genre.name} Publish date: #{book.publish_date} "
+      puts "Id: #{book.id} Title: #{book.label.title} " \
+           "Author: #{book.author.first_name} #{book.author.last_name} Genre: #{book.genre.name} Publish date: #{book.publish_date} "
     end
   end
 
