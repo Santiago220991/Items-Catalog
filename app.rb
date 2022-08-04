@@ -13,9 +13,7 @@ class App
 
   def initialize
     @labels = load_file1('labels')
-    p @labels
     @authors = load_file1('authors')
-    p @authors
     @genres = load_file1('genres')
     @books = load_file2('books')
     @games = load_file2('games')
@@ -55,7 +53,7 @@ class App
     puts ''
     puts 'List of books'
     @books.each do |book|
-      puts "Id: #{book.id} Title: #{book.label.title} Color: #{book.label.color} Publish date: #{book.publish_date}"
+      puts "Id: #{book.id} Title: #{book.label.title} Author: #{book.author.first_name} #{book.author.last_name} Genre: #{book.genre.name} Publish date: #{book.publish_date} "
     end
   end
 
