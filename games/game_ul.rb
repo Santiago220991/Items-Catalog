@@ -8,7 +8,7 @@ module GameUl
   include CommonUI
   def create_game
     puts 'add a new game'
-    props= common_properties
+    props = common_properties
     last_played_at = [(print 'Last time you played: '), gets.rstrip][1]
     multiplayer = [(print 'Does it have multiplayer?(y/n): '), gets.rstrip][1]
     game = Game.new(publish_date: props[:publish_date], last_played_at: last_played_at, multiplayer: multiplayer)

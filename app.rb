@@ -54,7 +54,8 @@ class App
     puts 'List of books'
     @books.each do |book|
       puts "Id: #{book.id} Title: #{book.label.title} " \
-           "Author: #{book.author.first_name} #{book.author.last_name} Genre: #{book.genre.name} Publish date: #{book.publish_date} "
+           "Author: #{book.author.first_name} #{book.author.last_name} " \
+           "Genre: #{book.genre.name} Publish date: #{book.publish_date} "
     end
   end
 
@@ -63,7 +64,8 @@ class App
     puts 'List of Music Albums'
     @music_albums.each do |music_album|
       puts "Id: #{music_album.id} Title: #{music_album.label.title} Author: #{music_album.author.first_name} " \
-          "Genre: #{music_album.genre.name} On spotify #{music_album.on_spotify} publish date #{music_album.publish_date}"
+           "Genre: #{music_album.genre.name} On spotify #{music_album.on_spotify} " \
+           "Publish date #{music_album.publish_date}"
     end
   end
 
@@ -72,7 +74,8 @@ class App
     puts 'List of games'
     @games.each do |game|
       puts "Id: #{game.id} Title: #{game.label.title} Genre: #{game.genre.name} Publish date: #{game.publish_date} " \
-           "author: #{game.author.first_name} #{game.author.last_name} Last time played: #{game.last_played_at} "
+           "Author: #{game.author.first_name} #{game.author.last_name} " \
+           "Last time played: #{game.last_played_at} "
     end
   end
 
