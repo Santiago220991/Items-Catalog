@@ -59,10 +59,16 @@ module Loader
   def load_musics(music)
     genre_id = music[:genre].id
     music_id = music[:id]
-    genre = @genres.filter { |gen| gen.id == genre_id }.first
+    label_id = music[:label].id
+    author_id = music[:author].id
+    label = @labels.filter { |lab| lab.id == label_id }.first
+    author = @authors.filter { |aut| aut.id == author_id }.first
+    genre = @genres.filter { |aut| aut.id == genre_id }.first
     music = MusicAlbum.new(publish_date: music[:publish_date], on_spotify: music[:on_spotify])
     music.id = music_id
     music.genre = genre
+    music.label = label
+    music.author = author
     music
   end
 end

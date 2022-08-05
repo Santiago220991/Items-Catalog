@@ -62,8 +62,8 @@ class App
     puts ''
     puts 'List of Music Albums'
     @music_albums.each do |music_album|
-      puts "Id: #{music_album.id} Name: #{music_album.genre.name} " \
-           "On spotify #{music_album.on_spotify} publish date #{music_album.publish_date}"
+      puts "Id: #{music_album.id} Title: #{music_album.label.title} Author: #{music_album.author.first_name} " \
+          "Genre: #{music_album.genre.name} On spotify #{music_album.on_spotify} publish date #{music_album.publish_date}"
     end
   end
 
@@ -71,15 +71,15 @@ class App
     puts ''
     puts 'List of games'
     @games.each do |game|
-      puts "Id: #{game.id}, Last time played: #{game.last_played_at}, " \
-           "author: #{game.author.first_name} #{game.author.last_name}, Publish date: #{game.publish_date}"
+      puts "Id: #{game.id} Title: #{game.label.title} Genre: #{game.genre.name} Publish date: #{game.publish_date} " \
+           "author: #{game.author.first_name} #{game.author.last_name} Last time played: #{game.last_played_at} "
     end
   end
 
   def list_genres
     puts ''
     puts 'List of genres'
-    @genres.each { |genre| puts "Id: #{genre.id} Title: #{genre.name}" }
+    @genres.each { |genre| puts "Id: #{genre.id} Genre: #{genre.name}" }
   end
 
   def list_labels
@@ -91,7 +91,7 @@ class App
   def list_authors
     puts ''
     puts 'List of authors'
-    @authors.each { |author| puts "Id: #{author.id}, first name: #{author.first_name}, last name: #{author.last_name}" }
+    @authors.each { |author| puts "Id: #{author.id}, First name: #{author.first_name}, Last name: #{author.last_name}" }
   end
 
   def add_book
