@@ -64,8 +64,8 @@ class App
     puts 'List of Music Albums'
     @music_albums.each do |music_album|
       puts "Id: #{music_album.id} Title: #{music_album.label.title} Author: #{music_album.author.first_name} " \
-           "Genre: #{music_album.genre.name} On spotify #{music_album.on_spotify} " \
-           "Publish date #{music_album.publish_date}"
+           "Genre: #{music_album.genre.name} On spotify: #{music_album.on_spotify} " \
+           "Publish date: #{music_album.publish_date}"
     end
   end
 
