@@ -106,12 +106,16 @@ class App
     data = create_music
     @music_albums << data[:music_album]
     @genres << data[:genre]
+    @authors << data[:author]
+    @labels << data[:label]
   end
 
   def add_game
     data = create_game
     @games << data[:game]
     @authors << data[:author]
+    @labels << data[:label]
+    @genres << data[:genre]
   end
 
   def save
