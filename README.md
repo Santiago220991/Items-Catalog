@@ -30,7 +30,6 @@ The data will be stored in JSON files but we also prepared a database with table
 
 - GitHub: [@Santiago Cárdenas](https://github.com/Santiago220991)
 - LinkedIn: [Santiago Cárdenas](https://www.linkedin.com/in/alexandersantiagocardenas/)
-- Twitter: [@SanCardenas10](https://twitter.com/SanCardenas10)
 
 👤 **Saif Ahmed**
 
